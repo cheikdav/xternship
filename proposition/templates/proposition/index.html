@@ -1,0 +1,9 @@
+{% if latest_proposition %}
+    <ul>
+    {% for prop in latest_proposition %}
+        <li><a href="/proposition/{{ prop.id }}/">{{prop }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Aucune proposition pour votre recherche.</p>
+{% endif %}
