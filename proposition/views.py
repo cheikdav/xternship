@@ -6,6 +6,8 @@ from .models import Proposition
 from django.http import HttpResponse
 from django.template import loader
 
+from .forms import PropForm
+
 # Create your views here.
 def index(request):
     
@@ -17,3 +19,11 @@ def detail_prop(request, prop_id):
     prop = get_object_or_404(Proposition,pk= prop_id)
     return render(request, 'proposition/detail_prop.html', {'prop' : prop})
 
+
+def nouvelle_prop(request):
+    if request.method == 'POST':
+        #il faudra envoyer ici à l'admin pour validation
+        form = PropForm(request.POST)
+    else:
+        form = PropForm()
+    return render(request, 'proposition/nouvelle_prop.html',{'form': form})
