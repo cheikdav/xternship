@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'proposition.apps.PropositionConfig',
+    'django_cas_ng', #A installer
 ]
 
 MIDDLEWARE = [
@@ -99,6 +100,16 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Configuration de la connection au serveur CAS du BR
+
+AUTHENTICATION_BACKENDS = (
+  'django.contrib.auth.backends.ModelBackend',
+  'django_cas_ng.backends.CASBackend',
+)
+CAS_SERVER_URL = "https://cas.binets.fr/"
+
+
 
 
 # Internationalization

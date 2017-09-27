@@ -16,7 +16,16 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from django_cas_ng.views import login, logout
+
+from . import views
+
 urlpatterns = [
+    url(r'^$', views.redirection, name='redirection'),
     url(r'^proposition/', include('proposition.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^login$', login, name ='cas_ng_login'),
+    url(r'^logout$', logout,{'next_page': 'login'}, name='cas_ng_logout'),
 ]
+
+

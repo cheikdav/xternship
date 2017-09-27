@@ -1,6 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<form action = '/nouvelle_prop' methode ="post">
-	{% csrf_token %}
-	{{form}}
-	<input type = 'submit' value ='Envoyer'/>
-</form>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+  
+<div class = "container">
+	<form action = '/nouvelle_prop' methode ="post">
+		{% csrf_token %}
+		{% for field in form%}
+			<div class="form-group">
+				<label for="{{field.id_for_label}}:", class = "form-control">
+				{{field.label}}
+				<label/>
+				{{field}}
+			</div>
+		{% endfor %}
+		<input type = 'submit' value ='Envoyer'/>
+	</form>
+</div>
+	

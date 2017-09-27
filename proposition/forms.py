@@ -8,9 +8,9 @@ class PropForm(forms.Form):
 
     
     proposeur = forms.CharField(label = 'Proposé par', max_length = 500)
-    contact_mail = forms.EmailField(label ='mail')
+    contact_mail = forms.EmailField(label ='Adresse mail')
 
-    date_publication = forms.DateField(label = 'date de publication',
+    date_publication = forms.DateField(label = 'Date de publication',
                                        input_formats='%d/%m/%Y')
     date_fin = forms.DateField(label = 'Date de fin de visibilité',
                                input_formats='%d/%m/%Y')
