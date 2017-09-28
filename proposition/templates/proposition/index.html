@@ -1,13 +1,9 @@
-<form action="/your-name/" method="post">
+<form action="/proposition/" method="post">
     {% csrf_token %}
     {{ type_rech }}
     <input type="submit" value="Submit" />
 </form>
-<form action="/your-name/" method="post">
-    {% csrf_token %}
-    {{ cat_rech }}
-    <input type="submit" value="Submit" />
-</form>
+
 
 {% if latest_proposition %}
     <ul>
